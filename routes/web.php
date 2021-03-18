@@ -6,9 +6,14 @@ use App\Http\Controllers\{
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('posts', [PostController::Class, 'index'])->name('post.index');
-Route::get('post/create', [PostController::Class, 'create'])->name('post.create');
-Route::post('post/store', [PostController::Class, 'store'])->name('post.store');
+Route::get('posts', [PostController::Class, 'index'])->name('posts.index');
+Route::get('posts/create', [PostController::Class, 'create'])->name('posts.create');
+Route::post('posts/store', [PostController::Class, 'store'])->name('posts.store');
+Route::get('posts/{id}', [PostController::Class, 'show'])->name('posts.show');
+Route::get('posts/edit/{id}', [PostController::Class, 'edit'])->name('posts.edit');
+Route::put('posts/update/{id}', [PostController::Class, 'update'])->name('posts.update');
+Route::delete('posts/destroy/{id}', [PostController::Class, 'destroy'])->name('posts.destroy');
+
 
 Route::get('/', function () {
     return view('welcome');
